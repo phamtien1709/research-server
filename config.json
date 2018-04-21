@@ -1,6 +1,6 @@
 {
     "port":8000,
     "connectionDatabase": "mongodb://admin:admin@ds119049.mlab.com:19049/research_neu",
-    "access_token": "368134756967632|mbPsc9fmTBVSbB6ltYVCboPbCzQ",
+    "access_token": "EAACEdEose0cBAIRHcntCi4I59USrBWQJBPYJzueQC0cHsygK0ZCAtqSaZAuyj1q2gNdJRLJARBxAlzNg6ZA4EI3ja6dnaYLYTZBMS9wtERduUGZCF6eAUX3GskP4ey9rBL9Qj38Jk7gz3ux94I1NwadrdEeVVzZA3XUju692zQwzjgplHKj5WRDiSdAMkeq1mjNbOZCDb3ZBtwZDZD",
     "pageId" : "beatvn.page"
 }
