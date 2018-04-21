@@ -1,0 +1,6 @@
+{
+    "port":8000,
+    "connectionDatabase": "mongodb://admin:admin@ds119049.mlab.com:19049/research_neu",
+    "access_token": "368134756967632|mbPsc9fmTBVSbB6ltYVCboPbCzQ",
+    "pageId" : "beatvn.page"
+}
