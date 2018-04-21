@@ -5,7 +5,10 @@ const postRouter = require('./router/posts/postRouter.js');
 
 const app = express();
 
-app.use('/post',postRouter);
+app.use('/', (req, res) => {
+    res.send('Nothing');
+})
+app.use('/post', postRouter);
 
 const port = process.env.PORT || config.port;
 
