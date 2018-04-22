@@ -8,7 +8,7 @@ FB.setAccessToken(config.access_token);
 const getPostsOfPage = (callback) => {
     var timeEnd = new Date().getTime();
     var timeStart = timeEnd - 2 * 86400000;
-    FB.api(config.pageId + '/posts?fields=permalink_url,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=2&since=' + parseInt(timeStart / 1000) + '&until=' + parseInt(timeEnd / 1000), (result) => {
+    FB.api(config.pageId + '/posts?fields=permalink_url,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=10&since=' + parseInt(timeStart / 1000) + '&until=' + parseInt(timeEnd / 1000), (result) => {
         if (!result || result.error) {
             callback(result.error);
         } else {

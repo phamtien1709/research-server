@@ -12,7 +12,7 @@ Router.get('/', (req, res) => {
         res.send(result);
         for(res in result){
             postsController.addPost(result[res], (caller)=>{
-                console.log(caller);
+                console.log(`It's up`);
             });
         }
         // res.send(`${result.message}`);
