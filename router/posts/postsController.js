@@ -15,9 +15,12 @@ const getPostsOfPage = (callback) => {
             // console.log(result.data[0].comments.summary.total_count);
             var data = [];
             for (res in result.data) {
+                let idUserPost = result.data[res].id.slice(0,15);
+                let idPost = result.data[res].id.slice(-16);
                 data.push({
                     "url": result.data[res].permalink_url,
-                    "id": result.data[res].id,
+                    "idUserPost": idUserPost,
+                    "idPost": idPost,
                     "full_picture": result.data[res].full_picture,
                     "message": result.data[res].message,
                     "like_count": result.data[0].likes.summary.total_count,
