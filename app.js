@@ -3,6 +3,7 @@ const config = require('./config.json');
 const FB = require('fb');
 const mongoose = require('mongoose');
 const postRouter = require('./router/posts/postRouter.js');
+const userRouter = require('./router/users/userRouter.js');
 
 const app = express();
 mongoose.connect(config.connectionDatabase, (err) => {
@@ -14,7 +15,7 @@ mongoose.connect(config.connectionDatabase, (err) => {
 });
 
 app.use('/post', postRouter);
-
+app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
     res.send('Nothing');
