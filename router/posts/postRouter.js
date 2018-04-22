@@ -10,11 +10,11 @@ Router.get('/', (req, res) => {
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         // res.send(`${result}`);
         res.send(result);
-        for(res in result){
-            postsController.addPost(result[res], (caller)=>{
-                console.log(`It's up`);
-            });
-        }
+        // for(res in result){
+        //     postsController.addPost(result[res], (caller)=>{
+        //         console.log(`It's up`);
+        //     });
+        // }
         // res.send(`${result.message}`);
     })
 })
