@@ -17,9 +17,9 @@ const getPostsOfPage = (callback) => {
             for (res in result.data) {
                 let idUserPost = result.data[res].id.slice(0,15);
                 let idPost = result.data[res].id.slice(-16);
-                let like_count = result.data[0].likes.summary.total_count;
-                let share_count = result.data[0].shares.count;
-                let comment_count = result.data[0].comments.summary.total_count;
+                let like_count = result.data[res].likes.summary.total_count;
+                let share_count = result.data[res].shares.count;
+                let comment_count = result.data[res].comments.summary.total_count;
                 data.push({
                     "url": result.data[res].permalink_url,
                     "idUserPost": idUserPost,
