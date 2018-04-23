@@ -27,13 +27,13 @@ app.use(express.static(__dirname + '/'));
 
 const port = process.env.PORT || config.port;
 
-app.listen(port, () => {
-    console.log("Your server is online at " + port);
-});
-// https.createServer({
-// 	key: fs.readFileSync('key.pem'),
-// 	cert: fs.readFileSync('cert.pem')
-// }, app)
-// 	.listen(port, function () {
-// 		console.log('Example app listening on port 8000! Go to https://localhost:8000/')
-// 	})
+// app.listen(port, () => {
+//     console.log("Your server is online at " + port);
+// });
+https.createServer({
+	key: fs.readFileSync('key.pem'),
+	cert: fs.readFileSync('cert.pem')
+}, app)
+	.listen(port, function () {
+		console.log('Example app listening on port 8000! Go to https://localhost:8000/')
+	})
