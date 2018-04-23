@@ -62,9 +62,19 @@ window.fbAsyncInit = function () {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function (response) {
+    FB.api('/me',{ locale: 'en_US', fields: 'name, email' }, function (response) {
         console.log('Successful login for: ' + response.name);
+        console.log(`Email: ${response.email}`)
         document.getElementById('status').innerHTML =
             'Thanks for logging in, ' + response.name + '!';
     });
+    FB.api('/me/posts', (response) => {
+        console.log('Posts:\n');
+        console.log(response.data);
+    });
+    FB.api('/me/likes', (response) => {
+        console.log('Pages Liked:\n');
+        console.log(response.data);
+    });
+
 }
