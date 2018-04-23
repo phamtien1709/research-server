@@ -17,15 +17,18 @@ const getPostsOfPage = (callback) => {
             for (res in result.data) {
                 let idUserPost = result.data[res].id.slice(0,15);
                 let idPost = result.data[res].id.slice(-16);
+                let like_count = result.data[0].likes.summary.total_count;
+                let share_count = result.data[0].shares.count;
+                let comment_count = result.data[0].comments.summary.total_count;
                 data.push({
                     "url": result.data[res].permalink_url,
                     "idUserPost": idUserPost,
                     "idPost": idPost,
                     "full_picture": result.data[res].full_picture,
                     "message": result.data[res].message,
-                    "like_count": result.data[0].likes.summary.total_count,
-                    "share_count": result.data[0].shares.count,
-                    "comment_count": result.data[0].comments.summary.total_count
+                    "like_count": like_count,
+                    "share_count": share_count,
+                    "comment_count": comment_count
                 })
                 // console.log(result.data[res]);
             }
