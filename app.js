@@ -21,6 +21,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+app.use(express.static(__dirname + '/')); 
+
 const port = process.env.PORT || config.port;
 
 app.listen(port, () => {
