@@ -18,7 +18,7 @@ app.use('/post', postRouter);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
-    res.send('Nothing');
+    res.sendFile(__dirname + '/index.html');
 });
 
 const port = process.env.PORT || config.port;
