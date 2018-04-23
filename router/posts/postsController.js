@@ -17,9 +17,21 @@ const getPostsOfPage = (callback) => {
             for (res in result.data) {
                 let idUserPost = result.data[res].id.slice(0,15);
                 let idPost = result.data[res].id.slice(-16);
-                let like_count = result.data[res].likes.summary.total_count;
-                let share_count = result.data[res].shares.count;
-                let comment_count = result.data[res].comments.summary.total_count;
+                if(result.data[res].likes.summary.total_count !== undefined){
+                    let like_count = result.data[res].likes.summary.total_count;
+                } else {
+                    let like_count = 0;
+                }
+                if(result.data[res].shares.count !== undefined){
+                    let share_count = result.data[res].shares.count;
+                } else{
+                    let share_count = 0;
+                }
+                if(result.data[res].comments.summary.total_count !== undefined){
+                    let comment_count = result.data[res].comments.summary.total_count;
+                } else {
+                    let comment_count = 0;
+                }
                 data.push({
                     "url": result.data[res].permalink_url,
                     "idUserPost": idUserPost,
