@@ -9,7 +9,7 @@ loginStatus = () => {
 getPostDemo = () => {
     $.ajax({
         type: 'GET',
-        url:'https://localhost:8000/post/getAnother',
+        url:'../post/getAnother',
         dataType: 'json',
         data: {
             'raw_url': "https://www.facebook.com/yesclubneu/"
