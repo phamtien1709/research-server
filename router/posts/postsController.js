@@ -9,6 +9,7 @@ const getPostsOfPage = (pageId, callback) => {
     var timeEnd = new Date().getTime();
     var timeStart = timeEnd - 2 * 86400000;
     FB.api(pageId + '/posts?fields=permalink_url,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=10', (result) => {
+
         if (!result || result.error) {
             callback(result.error);
         } else {
