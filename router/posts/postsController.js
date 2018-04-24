@@ -21,8 +21,12 @@ const getPostsOfPage = (pageId, callback) => {
                 let like_count;
                 let share_count;
                 let comment_count;
-                if(result.data[res].likes.summary.total_count !== undefined){
-                    like_count = result.data[res].likes.summary.total_count;
+                if(result.data[res].likes !== undefined){
+                    if(result.data[res].likes.summary !== undefined){
+                        like_count = result.data[res].likes.summary.total_count;
+                    } else {
+                        like_count = 0;
+                    }
                 } else {
                     like_count = 0;
                 }
@@ -31,8 +35,12 @@ const getPostsOfPage = (pageId, callback) => {
                 } else{
                     share_count = 0;
                 }
-                if(result.data[res].comments.summary.total_count !== undefined){
-                    comment_count = result.data[res].comments.summary.total_count;
+                if(result.data[res].comments !== undefined){
+                    if(result.data[res].comments.summary !== undefined){
+                        comment_count = result.data[res].comments.summary.total_count;
+                    } else {
+                        comment_count = 0;
+                    }
                 } else {
                     comment_count = 0;
                 }
@@ -42,6 +50,7 @@ const getPostsOfPage = (pageId, callback) => {
                     "idPost": idPost,
                     "full_picture": result.data[res].full_picture,
                     "message": result.data[res].message,
+                    "created_time": result.data[res].created_time,
                     "like_count": like_count,
                     "share_count": share_count,
                     "comment_count": comment_count

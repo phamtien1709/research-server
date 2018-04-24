@@ -21,7 +21,41 @@ Router.get('/', (req, res) => {
 Router.get('/duong', (req, res) =>{
     let pageId = config.duong;
     // console.log(req.body);
-    postsController.getPostsOfPage(config.duong, (result) => {
+    postsController.getPostsOfPage(pageId, (result) => {
+        res.header('Access-Control-Allow-Origin', "*");
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        // res.send(`${result}`);
+        res.send(result);
+        // for(res in result){
+        //     postsController.addPost(result[res], (caller)=>{
+        //         console.log(`It's up`);
+        //     });
+        // }
+        // res.send(`${result.message}`);
+    })
+});
+Router.get('/tien', (req, res) =>{
+    let pageId = config.tien;
+    // console.log(req.body);
+    postsController.getPostsOfPage(pageId, (result) => {
+        res.header('Access-Control-Allow-Origin', "*");
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        // res.send(`${result}`);
+        res.send(result);
+        // for(res in result){
+        //     postsController.addPost(result[res], (caller)=>{
+        //         console.log(`It's up`);
+        //     });
+        // }
+        // res.send(`${result.message}`);
+    })
+});
+Router.get('/khai', (req, res) =>{
+    let pageId = config.khai;
+    // console.log(req.body);
+    postsController.getPostsOfPage(pageId, (result) => {
         res.header('Access-Control-Allow-Origin', "*");
         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
