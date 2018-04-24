@@ -17,7 +17,7 @@ const getPostsOfPage = (pageId, callback) => {
                 // console.log(response);
                 var namePage = response.name;
                 FB.api(`/${pageId}?fields=picture`, 'GET', {}, (response) => {
-                    console.log(response);
+                    // console.log(response);
                     var picturePage = response.picture;
                     for (res in callerPost.data) {
                         let idUserPost = callerPost.data[res].id.slice(0, 15);
