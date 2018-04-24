@@ -1,5 +1,3 @@
-// import { reject } from 'any-promise';
-
 const config = require('../../config.json');
 const FB = require('fb');
 const postsModel = require('./postsSchema');
