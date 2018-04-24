@@ -2,12 +2,19 @@ const express = require('express');
 const https = require('https');
 const config = require('./config.json');
 const fs = require('fs');
+const bodyParser = require('body-parser');
 const FB = require('fb');
 const mongoose = require('mongoose');
 const postRouter = require('./router/posts/postRouter.js');
 const userRouter = require('./router/users/userRouter.js');
 
 const app = express();
+// create application/json parser
+var jsonParser = bodyParser.json();
+ 
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 mongoose.connect(config.connectionDatabase, (err) => {
 	if (err) {
 		console.log(err);
@@ -35,5 +42,5 @@ https.createServer({
 	cert: fs.readFileSync('cert.pem')
 }, app)
 	.listen(port, function () {
-		console.log('Example app listening on port 8000! Go to https://localhost:8000/')
+		console.log('Example app listening on port 8000! Go to https://localhost:8000/');
 	})

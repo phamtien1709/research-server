@@ -5,10 +5,10 @@ const FB = require('fb');
 const postsModel = require('./postsSchema');
 
 FB.setAccessToken(config.access_token);
-const getPostsOfPage = (callback) => {
+const getPostsOfPage = (pageId, callback) => {
     var timeEnd = new Date().getTime();
     var timeStart = timeEnd - 2 * 86400000;
-    FB.api(config.pageId + '/posts?fields=permalink_url,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=10&since=' + parseInt(timeStart / 1000) + '&until=' + parseInt(timeEnd / 1000), (result) => {
+    FB.api(pageId + '/posts?fields=permalink_url,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=10', (result) => {
         if (!result || result.error) {
             callback(result.error);
         } else {
@@ -25,7 +25,7 @@ const getPostsOfPage = (callback) => {
                 } else {
                     like_count = 0;
                 }
-                if(result.data[res].shares.count !== undefined){
+                if(result.data[res].shares !== undefined){
                     share_count = result.data[res].shares.count;
                 } else{
                     share_count = 0;
@@ -72,3 +72,5 @@ module.exports = {
     getPostsOfPage,
     addPost
 }
+
+// FB.api(pageId + '/posts?fields=permalink_url,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=10&since=' + parseInt(timeStart / 1000) + '&until=' + parseInt(timeEnd / 1000)
