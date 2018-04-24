@@ -4,6 +4,7 @@ const postsModel = require('./postsSchema');
 
 FB.setAccessToken(config.access_token);
 const getPostsOfPage = (pageId, callback) => {
+    // console.log(pageId);
     var timeEnd = new Date().getTime();
     var timeStart = timeEnd - 2 * 86400000;
     FB.api(pageId + '/posts?fields=permalink_url,created_time,full_picture,id,message,shares,likes.summary(true),comments.summary(true)&limit=10', (result) => {
